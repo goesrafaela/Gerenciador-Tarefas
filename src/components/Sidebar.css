@@ -1,0 +1,33 @@
+.completed-tasks-sidebar {
+    position: fixed;
+    top: 120px; /* Ajuste para ficar logo abaixo do header */
+    left: 0;
+    width: 250px;
+    height: calc(100% - 120px); /* Para ocupar o restante da altura da tela */
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 150; /* Aumenta o z-index para ficar abaixo do header */
+    overflow-y: auto;
+  }
+  
+  .completed-tasks-sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .completed-tasks-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .completed-tasks-sidebar li {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  

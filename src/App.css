@@ -1,38 +1,426 @@
+/* Estilo geral da aplicação */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 120px; /* Ajuste o padding para compensar o header fixo */
+}
+
+/* Layout principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 250px; /* Espaço para a barra lateral de tarefas concluídas */
+}
+
+/* Conteúdo da aplicação */
+.content {
+  width: 100%;
+  max-width: 400px;  /* Limita a largura do conteúdo */
+  padding-top: 30px; /* Espaçamento entre o header fixo e o conteúdo */
+}
+
+form {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  margin-right: 10px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #28a745; /* Cor do botão padrão */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 400px;
+  width: 100%;
+  margin-top: 20px; /* Espaço entre o formulário e as tarefas */
+}
+
+/* Estilo para cada tarefa */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+li button {
+  background-color: #dc3545;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+li button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+li button:active {
+  transform: translateY(2px);
+}
+
+li span {
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+li span:hover {
+  color: #007bff;
+}
+
+/* Estilos para o Header */
+header {
+  background-color: #007bff;
+  color: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200; /* Aumenta o z-index do header */
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #f0f0f0;
+}
+
+/* Estilos para as Categorias */
+.categories {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.categories span {
+  font-weight: 500;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.categories button {
+  margin: 0 10px;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.categories button:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.categories button.selected {
+  background-color: #0056b3;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.categories button:active {
+  transform: translateY(2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.categories button:focus {
+  outline: none;
+}
+
+/* Estilos para o botão de adicionar categoria */
+button.add-category {
+  background-color: #ffc107;
+  color: white;
+  margin-top: 15px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.add-category:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
+}
+
+button.add-category:active {
+  transform: translateY(2px);
+}
+
+/* Estilo do lembrete de tarefas pendentes */
+.reminder {
+  background-color: #ffefc1;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os inputs de data */
+input[type="date"] {
+  padding: 10px;
+  margin: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: auto;
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo para exibir as datas nas tarefas */
+li span {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+li span:first-child {
+  font-weight: bold;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+/* Estilo para as tarefas com diferentes níveis de prioridade */
+li.priority-baixa {
+  border-left: 5px solid #28a745;
+}
+
+li.priority-normal {
+  border-left: 5px solid #ffc107;
+}
+
+li.priority-alta {
+  border-left: 5px solid #dc3545;
+}
+
+/* Ajustes visuais no seletor de prioridade */
+select {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilos para o modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Usar 100% da largura */
+  max-width: 400px; /* Limitar a largura máxima do modal */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.modal-content input {
+  width: 90%; /* Ajuste para 90% da largura do modal */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* Garantir que padding seja contabilizado na largura total */
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-buttons button:first-child:hover {
+  background-color: #218838;
+}
+
+.modal-buttons button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modal-buttons button:last-child:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para a barra lateral (Tarefas Concluídas) */
+.completed-tasks-sidebar {
+  position: fixed;
+  top: 120px; /* Ajuste para ficar logo abaixo do header */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 120px); /* Para ocupar o restante da altura da tela */
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 150; /* Aumenta o z-index para ficar abaixo do header */
+  overflow-y: auto;
+}
+
+.completed-tasks-sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.completed-tasks-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.completed-tasks-sidebar li {
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 140px; /* Aumenta o padding para compensar o header fixo em telas menores */
   }
-  to {
-    transform: rotate(360deg);
+
+  header {
+    padding: 20px;
+  }
+
+  .categories button {
+    margin: 5px;
+    padding: 8px 12px;
+  }
+
+  li {
+    width: 90%;
+  }
+
+  input {
+    width: 200px;
+  }
+
+  button {
+    padding: 10px 15px;
+  }
+
+  .main-content {
+    margin-left: 0; /* Remove o espaço para a barra lateral em telas pequenas */
+  }
+
+  .completed-tasks-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    margin-bottom: 20px;
+    top: 0; /* Remove a posição fixa */
   }
 }

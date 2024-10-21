@@ -1,13 +1,106 @@
+/* index.css */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background-color: #f4f4f9;
+  padding-top: 120px; /* Garantir que o conteúdo fique visível abaixo do header fixo */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 20px 0;
+}
+
+/* Estilo para inputs e buttons */
+input, button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%; /* Para que os inputs ocupem toda a largura disponível */
+  max-width: 400px; /* Limita a largura máxima dos inputs */
+}
+
+button {
+  background-color: #28a745; /* Verde para adicionar tarefa */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838; /* Tom de verde mais escuro ao passar o mouse */
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+/* Estilos para a lista de tarefas */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0; /* Adiciona espaço acima e abaixo da lista */
+  width: 100%;
+  max-width: 400px; /* Limita a largura das tarefas */
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Estilo para a categoria selecionada */
+button.selected {
+  background-color: #0056b3; /* Azul para a categoria selecionada */
+  color: white;
+}
+
+/* Estilos para as tarefas concluídas */
+.completed-tasks {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e2ffe2; /* Fundo claro para distinguir */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  body {
+    padding-top: 140px; /* Ajuste o padding para compensar o header fixo em telas menores */
+  }
+
+  input, button {
+    width: 90%; /* Reduz a largura dos inputs e botões em telas pequenas */
+  }
+
+  ul {
+    width: 90%;
+  }
+
+  li {
+    font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
+  }
 }

@@ -1,0 +1,56 @@
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px auto;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  li.completed span {
+    text-decoration: line-through;
+    color: grey;
+  }
+  
+  li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  li button:hover {
+    background-color: #c82333;
+  }
+  
+  li span {
+    cursor: pointer;
+  }
+
+  /* src/components/Todo.css */
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.todo.completed {
+  text-decoration: line-through;
+  background-color: #e0ffe0; /* Verde claro para tarefas concluídas */
+}
+
+.due-date,
+.priority {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+  
